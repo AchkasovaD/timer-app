@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { PATHS } from "../../config/paths";
 import { MusicPlayer } from "../MusicPlayer/MusicPlayer";
 import { getRandomTrack } from "../../data/music";
 import "./TimerScreen.css";
@@ -20,7 +21,7 @@ export const TimerScreen: React.FC<TimerScreenProps> = ({
 
   const playMeowSound = () => {
     try {
-      const audio = new Audio("sounds/meow_10.mp3");
+      const audio = new Audio(PATHS.sounds("meow_10.mp3"));
       audio
         .play()
         .catch((e) => console.log("Не удалось воспроизвести звук:", e));
@@ -94,10 +95,7 @@ export const TimerScreen: React.FC<TimerScreenProps> = ({
         loop
         playsInline
       >
-        <source
-          src={`${process.env.PUBLIC_URL}/videos/cat_video.mp4`}
-          type="video/mp4"
-        />
+        <source src={PATHS.videos("cat_video.mp4")} type="video/mp4" />
         Ваш браузер не поддерживает видео.
       </video>
 

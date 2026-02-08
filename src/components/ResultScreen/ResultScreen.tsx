@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import { PATHS } from "../../config/paths";
 import { CAT_VIDEOS, getRandomVideo, VideoInfo } from "../../data/videos";
 
 interface ResultScreenProps {
@@ -17,7 +18,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
     // Если у видео нет звука, воспроизводим мяу
     if (!video.hasSound) {
       try {
-        const audio = new Audio("/sounds/meow_10.mp3");
+        const audio = new Audio(PATHS.sounds("meow_10.mp3"));
         // Уменьшаем громкость мяу, чтобы не перекрывало музыку если она еще играет
         audio.volume = 0.7;
 
@@ -105,10 +106,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
         preload="auto"
       >
         {/* Используем рандомное видео */}
-        <source
-          src={`${process.env.PUBLIC_URL}/videos/${selectedVideo.filename}`}
-          type="video/mp4"
-        />
+        <source src={PATHS.videos(selectedVideo.filename)} type="video/mp4" />
         Ваш браузер не поддерживает видео.
       </video>
 
