@@ -1,43 +1,151 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ru">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <!-- Иконки и фавикон -->
+    <link rel="icon" href="/icon_cat.jpg" />
+    <link rel="apple-touch-icon" href="/icon_cat.jpg" />
+
+    <!-- Мета-теги для SEO и мобильных устройств -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#ff66b2" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Таймер для учебы с музыкой и котиками для моей любимой ❤️"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <!-- Open Graph метатеги для соцсетей (опционально) -->
+    <meta property="og:title" content="Таймер для моей любимой ❤️" />
+    <meta
+      property="og:description"
+      content="Персональное приложение-таймер для учебы с музыкой и котиками"
+    />
+    <meta property="og:image" content="/icon_cat.jpg" />
+    <meta property="og:type" content="website" />
+
+    <!-- Манифест для PWA -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- Заголовок сайта -->
+    <title>Таймер для моей любимой ❤️</title>
+
+    <!-- Предзагрузка шрифтов (если используете Google Fonts) -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> -->
+
+    <!-- Предзагрузка критичных ресурсов (опционально) -->
+    <link
+      rel="preload"
+      href="/sounds/music_1.mp3"
+      as="audio"
+      type="audio/mpeg"
+    />
+
+    <!-- Дополнительные метатеги -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <style>
+      /* Инлайн CSS для мгновенной загрузки критичных стилей */
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+        overflow-x: hidden;
+      }
+
+      /* Стили для прелоадера */
+      #root {
+        min-height: 100vh;
+      }
+
+      /* Стили для состояния загрузки */
+      .app-loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff66b2, #ff91de);
+        color: white;
+        font-size: 1.5rem;
+        text-align: center;
+      }
+
+      .app-loading::after {
+        content: "❤️";
+        animation: heartbeat 1.5s ease-in-out infinite;
+        display: block;
+        font-size: 3rem;
+        margin-top: 20px;
+      }
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+      }
+    </style>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!-- Прелоадер пока загружается React -->
+    <div id="loading" class="app-loading">
+      <div>
+        <div>Загружаю приложение...</div>
+        <div>Для моей любимой ❤️</div>
+      </div>
+    </div>
+
+    <!-- Основной контейнер для React -->
     <div id="root"></div>
+
+    <!-- Скрипт для скрытия прелоадера когда React загрузится -->
+    <script>
+      // Скрипт для скрытия прелоадера
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          var loading = document.getElementById("loading");
+          if (loading) {
+            loading.style.opacity = "0";
+            loading.style.transition = "opacity 0.5s ease";
+            setTimeout(function () {
+              loading.style.display = "none";
+            }, 500);
+          }
+        }, 500);
+      });
+
+      // Обработчик ошибок загрузки
+      window.addEventListener("error", function (e) {
+        console.error("Ошибка загрузки:", e);
+        var loading = document.getElementById("loading");
+        if (loading) {
+          loading.innerHTML =
+            "<div>Что-то пошло не так 😢<br>Попробуйте перезагрузить страницу</div>";
+        }
+      });
+    </script>
+
+    <!-- Удалите комментарии create-react-app если хотите -->
     <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
+      Этот HTML файл - шаблон.
+      Если открыть его напрямую в браузере, вы увидите пустую страницу.
+      
+      Вы можете добавить веб-шрифты, метатеги или аналитику в этот файл.
+      Сборка поместит скомпилированные скрипты в тег <body>.
+      
+      Для начала разработки запустите `npm start` или `yarn start`.
+      Для сборки продакшн версии используйте `npm run build` или `yarn build`.
     -->
   </body>
 </html>
