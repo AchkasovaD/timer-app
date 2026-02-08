@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "./static/css/main.307d28c3.css",
+    "main.js": "./static/js/main.ac43fb0a.js",
+    "static/media/main.jpg": "./static/media/main.085ef6dd3fad0f6599d7.jpg",
+    "static/media/odesa.jpg": "./static/media/odesa.101ddd737ac122e83638.jpg",
+    "index.html": "./index.html",
+    "static/media/heart-logo-res.svg": "./static/media/heart-logo-res.d7149af6d57a829da6f8f477d74bcdb9.svg",
+    "static/media/cross.svg": "./static/media/cross.d30b4653f95fda891af7533bce8aff49.svg",
+    "main.307d28c3.css.map": "./static/css/main.307d28c3.css.map",
+    "main.ac43fb0a.js.map": "./static/js/main.ac43fb0a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.307d28c3.css",
+    "static/js/main.ac43fb0a.js"
+  ]
+}

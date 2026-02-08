@@ -1,0 +1,20 @@
+{
+  "short_name": "Таймер для любимой",
+  "name": "Таймер для моей любимой ❤️",
+  "icons": [
+    {
+      "src": "/icon_cat.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/icon_cat.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#ff66b2",
+  "background_color": "#ff91de"
+}
