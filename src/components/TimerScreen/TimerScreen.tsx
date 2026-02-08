@@ -94,7 +94,10 @@ export const TimerScreen: React.FC<TimerScreenProps> = ({
         loop
         playsInline
       >
-        <source src="videos/cat_video.mp4" type="video/mp4" />
+        <source
+          src={`${process.env.PUBLIC_URL}/videos/cat_video.mp4`}
+          type="video/mp4"
+        />
         Ваш браузер не поддерживает видео.
       </video>
 

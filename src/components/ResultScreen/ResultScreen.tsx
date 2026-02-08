@@ -105,7 +105,10 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
         preload="auto"
       >
         {/* Используем рандомное видео */}
-        <source src={`videos/${selectedVideo.filename}`} type="video/mp4" />
+        <source
+          src={`${process.env.PUBLIC_URL}/videos/${selectedVideo.filename}`}
+          type="video/mp4"
+        />
         Ваш браузер не поддерживает видео.
       </video>
 

@@ -56,7 +56,7 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({
   // Обновление источника при смене трека
   useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.src = `sounds/${currentTrack.filename}`;
+      audioRef.current.src = `${process.env.PUBLIC_URL}/sounds/${currentTrack.filename}`;
       audioRef.current.load();
 
       if (isPlaying) {
