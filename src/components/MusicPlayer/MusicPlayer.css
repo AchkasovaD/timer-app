@@ -1,0 +1,125 @@
+.music-player {
+  position: fixed;
+  bottom: 70px; /* Выше футера */
+  left: 0;
+  right: 0;
+  background: rgba(248, 199, 244, 0.85);
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  z-index: 1000;
+  border-top: 2px solid #ff66b2;
+  backdrop-filter: blur(10px);
+}
+
+.player-controls {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.control-btn {
+  background: rgba(255, 102, 178, 0.8);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.control-btn:hover {
+  background: rgba(255, 102, 178, 1);
+  transform: scale(1.1);
+}
+
+.play-pause-btn {
+  width: 45px;
+  height: 45px;
+  font-size: 1.4rem;
+}
+
+.player-volume {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 150px;
+}
+
+.volume-slider {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 102, 178, 0.2);
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ff66b2;
+  cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ff66b2;
+  cursor: pointer;
+  border: none;
+}
+
+.volume-icon {
+  font-size: 1rem;
+}
+
+.volume-percent {
+  font-size: 0.85rem;
+  min-width: 40px;
+  text-align: right;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+  .music-player {
+    flex-wrap: wrap;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .player-controls {
+    order: 2;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .player-volume {
+    order: 3;
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  .control-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .play-pause-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
